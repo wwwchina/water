@@ -125,6 +125,8 @@ public class ZooActivity extends BaseActivity implements View.OnClickListener, P
         PlayerEngineOptions.Builder builder = new PlayerEngineOptions.Builder();
         builder.setControlScreenBrightness(false);//设置ssp不控制亮度
         builder.setControlVolume(false); //设置ssp不控制音量
+        builder.setDefaultBgPath("file:///android_asset/port.png", "file:///android_asset/land.png");
+//        builder.setDefaultBgPath(null,null);
         if (playerEngine == null) {
             switch (strStartType) {
                 case START_TYPE_VIRTUAL_MAC:
@@ -291,15 +293,15 @@ public class ZooActivity extends BaseActivity implements View.OnClickListener, P
      */
     private void checkWatchApp() {
 //        // 如果APK目录下已经存在该文件，说明已经安装过了
-        File file = new File(Constant.WORK_DIR_APK + "superservice.apk");
-        if (!file.exists()) {
-            LoadingDialog dialog = new LoadingDialog();
-            dialog.showDialogForLoading(this,"守护程序安装中,请稍后...",false);
-            new Handler().postDelayed(() -> {
-                //安装守护
-                CommonHelper.installSystemApk(getApplicationContext(), "superservice.apk", "superservice.apk", true);
-            }, 2000);
-        }
+//        File file = new File(Constant.WORK_DIR_APK + "superservice.apk");
+//        if (!file.exists()) {
+//            LoadingDialog dialog = new LoadingDialog();
+//            dialog.showDialogForLoading(this,"守护程序安装中,请稍后...",false);
+//            new Handler().postDelayed(() -> {
+//                //安装守护
+//                CommonHelper.installSystemApk(getApplicationContext(), "superservice.apk", "superservice.apk", true);
+//            }, 2000);
+//        }
     }
 
 }

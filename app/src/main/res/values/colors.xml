@@ -12,4 +12,5 @@
     <color name="more_light_gray">#d6d6d6</color> <!-- 淡灰色 -->
     <color name="more_light_gray2">#ff0000</color> <!-- 淡灰色 -->
     <color name="more_light_green">#c82e4a24</color> <!-- 淡绿色 -->
+    <color name="transparent">#00000000</color> <!-- 淡绿色 -->
 </resources>
