@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/person_window"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bj"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginTop="20dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:drawableLeft="@mipmap/warning"
+            android:text="温馨提示：普通水杯，大概可盛水200ML"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tds_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dip"
+            android:layout_marginRight="40dip"
+            android:text="TDS水质：0"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dip"
+            android:text="剩余水量：20L"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="制水时间：1分钟"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:background="#eeeeee" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="105dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="支付方式："
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <RadioGroup
+                    android:id="@+id/personPayGroup"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/person_alipay"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/selector_check_for_zhifubao"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/person_wchatpay"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:background="@drawable/selector_check_for_weixin"
+                        android:button="@null"
+                        android:padding="5dip" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="20dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用水量："
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/person_7"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/trans_bg_lrc_alpha_black_border"
+                    android:paddingBottom="3dip"
+                    android:paddingLeft="12dip"
+                    android:paddingRight="12dip"
+                    android:paddingTop="3dip"
+                    android:text="7.0L" />
+
+                <TextView
+                    android:id="@+id/person_15"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/trans_bg_lrc_alpha_black_border"
+                    android:paddingBottom="3dip"
+                    android:paddingLeft="12dip"
+                    android:paddingRight="12dip"
+                    android:paddingTop="3dip"
+                    android:text="15L" />
+
+                <TextView
+                    android:id="@+id/person_18"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:background="@drawable/trans_bg_lrc_alpha_black_border"
+                    android:paddingBottom="3dip"
+                    android:paddingLeft="12dip"
+                    android:paddingRight="12dip"
+                    android:paddingTop="3dip"
+                    android:text="18L" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginTop="20dip">
+
+                <EditText
+                    android:id="@+id/person_input_num"
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="50dip"
+                    android:layout_marginRight="20dip"
+                    android:background="@drawable/trans_bg_lrc_alpha_black_border"
+                    android:hint="请输入取水量"
+                    android:inputType="numberDecimal"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="8dip"
+                    android:paddingTop="5dip"
+                    android:textColorHint="#999999"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/person_makesure"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:background="@drawable/selector_makesure_btn"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="6dip"
+                    android:paddingRight="6dip"
+                    android:paddingTop="5dip"
+                    android:text="确定"
+                    android:textColor="#eeeeee"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+        >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/frt" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="扫码支付"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textColor="#BA7E03"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dip"
+                    android:text="请打开手机里的客户端，开启扫一扫功能并扫描屏幕上的二维码"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

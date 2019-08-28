@@ -1,0 +1,164 @@
+播放器SDK集成文档
+
+一、SDK说明
+播放器SDK通过aar包 + Module lib（LibPlaySdk）的方式封装。
+工程只需要引入Module lib（LibPlaySdk + libserialport）即可完成播放器SDK的集成。
+1.1 SDK包含的文件
+    播放器SDK中包含两个Module（libserialport、LibPlaySdk）
+1.2 Module说明
+    1.1.1 libserialport
+        串口工具类，LibPlaySdk需要依赖这个Module lib
+    1.1.2 LibPlaySdk
+        其中引入了我们封装的aar包和sdk依赖的第三方类库
+        //设置aar的路径
+        repositories {
+                flatDir {
+                    dirs 'libs'
+                }
+            }
+        //依赖的资源
+        dependencies {
+            api fileTree(dir: 'libs', include: ['*.jar'])
+            api (name: 'LibPlay-xxxx', ext: 'aar')
+            api 'com.android.support:support-v4:28.0.0'
+            api 'org.kie.modules:org-apache-commons-net:6.5.0.Final'
+            api 'com.google.code.gson:gson:2.8.5'
+            api 'com.google.zxing:core:3.3.3'
+            api 'com.squareup.okhttp3:okhttp:3.11.0'
+            api 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+            api "com.squareup.retrofit2:retrofit:2.4.0"
+            api "com.squareup.retrofit2:converter-gson:2.4.0"
+            api "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+            api "io.reactivex.rxjava2:rxandroid:2.1.0"
+            api "io.reactivex.rxjava2:rxjava:2.2.2"
+            api "org.greenrobot:eventbus:3.1.1"
+            api "jp.wasabeef:glide-transformations:4.0.0"
+            api "com.liulishuo.okdownload:okdownload:1.0.5"
+            api "com.liulishuo.okdownload:sqlite:1.0.5"
+            api "com.liulishuo.okdownload:okhttp:1.0.5"
+            api 'org.greenrobot:greendao:3.2.2'
+            api 'org.greenrobot:greendao-generator:3.2.2'
+            api 'net.zetetic:android-database-sqlcipher:3.5.9@aar'
+            api 'com.parse.bolts:bolts-tasks:1.4.0'
+        }
+二、集成步骤：
+2.1 android studio 配置
+  2.1.1 工程的build.gradle 配置
+  // In your root build.gradle file:
+  buildscript {
+      repositories {
+          ...
+          ...
+          jcenter()
+          mavenCentral()
+      }
+      dependencies {
+          ...
+      }
+  }
+
+  allprojects {
+      repositories {
+          mavenCentral()
+          jcenter()
+          ...
+          ...
+      }
+  }
+
+  2.1.2 Module添加
+  将SDK中的两个Module（libserialport、LibPlaySdk）添加到工程中，并在工程的
+  settings.gradle 完成添加
+  如下：
+  include ':xxx',':libserialport', ':LibPlaySdk'
+
+  '：xxx'为工程中的其他module
+  2.1.3 Module 配置
+  以Module A 集成播放器Module为例说明
+  Module A 只需要引入LibPlaySdk即可（LibPlaySdk 已配置好依赖的第三方和串口的工具libserialport。）
+
+
+  配置在Module A的build.gradle
+  2.1.3.1
+  配置dependencies
+  dependencies {
+      implementation fileTree(include: ['*.jar'], dir: 'libs')
+      ...
+      ...
+      implementation project(':LibPlaySdk') //引入
+  }
+
+  2.1.3.2
+  配置 android-repositories
+    因为LibPlaySdk中封装了arr包，所以依赖LibPlaySdk的Module A 应配置如下
+    android {
+        ...
+        ...
+
+        repositories {
+            flatDir {
+                dirs 'libs', '../LibPlaySdk/libs'（不添加编译器会报找不到：LibPlay的编译错误）
+            }
+        }
+    }
+  注意：
+  同理  Module B 如果依赖了Module A
+  则需如下配置
+  android {
+          ...
+          ...
+
+          repositories {
+              flatDir {
+                  dirs 'libs', '../LibPlaySdk/libs'（不添加编译器会报找不到：LibPlay的编译错误）
+              }
+          }
+      }
+  dependencies {
+        implementation fileTree(include: ['*.jar'], dir: 'libs')
+        ...
+        ...
+        implementation project(':A') //Module A
+    }
+2.2 播放器SDK引入
+  2.2.1 初始化
+  在application初始化时调用
+  PlayerEngineSdkConfig.Builder builder = new PlayerEngineSdkConfig.Builder(this);
+  可以设置是否拦截app crash、是否开启debug、是否显示toast提示
+  builder.setCatchCrash(false);
+  builder.setDebug(false);
+  builder.setShowToastLog(false);
+
+  PlayerEngineSDK.initialize(builder.build());
+  完成初始化
+  2.2.2 使用播放器
+  PlayerEngine playerEngine = new PlayerEngine(context, viewGroup);//创建播放器
+  或者
+  PlayerEngine playerEngine = new PlayerEngine(context, viewGroup, playerEngineOptions);//创建播放器
+
+  通过PlayerEngineOptions可以设置播放器的默认背景图
+  PlayerEngineOptions.Builder builder = new PlayerEngineOptions.Builder();
+
+  builder.setDefaultBgPath(String portraitImagePath, String landscapeImagePath) //portraitImagePath 竖版背景图路径，landscapeImagePath横版背景图路径
+  传入的路径：
+  asset下：file:///android_asset/图片名
+
+  可以替换摇一摇的默认gif图片(后缀gif)
+  builder.setSharkImagePath(String imagePath) //imagePath git文件的路径
+
+  可以设置ssp后台是否控制屏幕亮度
+  builder.setControlScreenBrightness(boolean controlScreenBrightness)
+
+  可以设置ssp后台是否控制屏幕声音
+  builder.setControlVolume(boolean controlVolume)
+
+  可以设置第三方标识如sn
+  builder.setId(@NonNull String appId, @NonNull String appKey, @NonNull String id)// appId：ssp分配给应用的id；appKey：ssp分配给应用的key；id： app自定义的唯一标识如sn
+
+
+  playerEngine.startPlay();//开始播放
+  playerEngine.stopPlay()//停止播放
+  playerEngine.stopPlay(boolean showDefBg) //停止播放后是否停留显示默认背景
+  playerEngine.setMute(boolean mute); // true：关闭声音 false：不关闭声音
+
+

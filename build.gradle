@@ -1,0 +1,40 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        maven { url 'https://jitpack.io' }
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        maven{ url 'https://maven.aliyun.com/repository/google' }
+        maven{ url 'https://maven.aliyun.com/repository/jcenter' }
+        //新加
+        mavenCentral()
+        jcenter()
+        //新加
+        mavenLocal()
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'cn.jiguang.android:janalytics-gradle-plugin:2.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        maven{ url 'https://maven.aliyun.com/repository/google' }
+        maven{ url 'https://maven.aliyun.com/repository/jcenter' }
+        //新加
+        mavenCentral()
+        jcenter()
+        //新加
+        mavenLocal()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dip"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_weight="1"/>
+    <TextView
+        android:id="@+id/radio_button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:drawableTop="@drawable/mainpage_selector"
+        android:focusable="true"
+        android:gravity="center"
+        android:tag="radio_button0"
+        android:background="#00000000"
+        android:textColor="@drawable/home_tab_text_color_selector"
+        android:text="直饮水引导"
+        android:textSize="@dimen/bottom_tab_font_size" />
+    <TextView
+        android:id="@+id/radio_button0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="#00000000"
+        android:gravity="center"
+        android:drawableTop="@drawable/mallpage_selector"
+        android:tag="radio_button0"
+        android:textColor="@drawable/home_tab_text_color_selector"
+        android:text="个人购水"
+        android:textSize="@dimen/bottom_tab_font_size" />
+
+
+    <TextView
+        android:id="@+id/radio_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:drawableTop="@drawable/myaccount_selector"
+        android:textColor="@drawable/home_tab_text_color_selector"
+        android:focusable="true"
+        android:gravity="center"
+        android:background="#00000000"
+        android:text="员工接水"
+        android:tag="radio_button1"
+        android:textSize="@dimen/bottom_tab_font_size" />
+
+
+    <TextView
+        android:id="@+id/radio_button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/mainpage2_selector"
+        android:text="公司充值"
+        android:textColor="@drawable/home_tab_text_color_selector"
+        android:background="#00000000"
+        android:gravity="center"
+        android:tag="radio_button3"
+        android:textSize="@dimen/bottom_tab_font_size" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_weight="1"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_weight="1"/>
+</LinearLayout>
